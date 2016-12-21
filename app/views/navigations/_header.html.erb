@@ -213,10 +213,14 @@
         </li>
         <!-- User Account: style can be found in dropdown.less -->
         <li class="dropdown user user-menu">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <%= image_tag "user2-160x160.jpg", class: "user-image", alt: "User Image" %>
-            <span class="hidden-xs">Alexander Pierce</span>
-          </a>
+          <% if user_signed_in? %>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <%= image_tag "user2-160x160.jpg", class: "user-image", alt: "User Image" %>
+              <%= current_user.email %>
+            </a>
+          <% else %>
+            <%= link_to "Login", new_user_session_path  %>
+          <% end %>
           <ul class="dropdown-menu">
             <!-- User image -->
             <li class="user-header">
@@ -242,14 +246,16 @@
               <!-- /.row -->
             </li>
             <!-- Menu Footer-->
-            <li class="user-footer">
-              <div class="pull-left">
-                <a href="#" class="btn btn-default btn-flat">Profile</a>
-              </div>
-              <div class="pull-right">
-                <a href="#" class="btn btn-default btn-flat">Sign out</a>
-              </div>
-            </li>
+            <% if user_signed_in? %>
+              <li class="user-footer">
+                <div class="pull-left">
+                  <%= link_to 'Edit profile', edit_user_registration_path %>
+                </div>
+                <div class="pull-right">
+                  <%= link_to "Logout", destroy_user_session_path, method: :delete%>
+                </div>
+              </li>
+            <% end %>
           </ul>
         </li>
         <!-- Control Sidebar Toggle Button -->
