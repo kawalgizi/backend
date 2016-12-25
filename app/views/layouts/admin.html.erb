@@ -12,9 +12,9 @@
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
-      <%= render "navigations/header" %>
+      <%= render "admin_navigations/header" %>
       <!-- Left side column. contains the logo and sidebar -->
-      <%= render "navigations/sidebar" %>
+      <%= render "admin_navigations/sidebar" %>
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <%= yield %>
@@ -29,7 +29,7 @@
       </footer>
 
       <!-- Left side column. contains the logo and sidebar -->
-      <%= render "navigations/secondary_sidebar" %>
+      <%= render "admin_navigations/secondary_sidebar" %>
     </div>
     <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js' %>
     <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js' %>
