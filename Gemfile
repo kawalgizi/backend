@@ -16,6 +16,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'will_paginate', '~> 3.1.0'
 
+gem 'cancancan'
+
 group :development, :test do
   gem 'byebug', platform: :mri
 end
