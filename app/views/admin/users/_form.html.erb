@@ -3,7 +3,7 @@
 </div>
 <!-- /.box-header -->
 <!-- form start -->
-<%= form_for user, :html => {:class => 'form-horizontal'} do |f| %>
+<%= form_for [:admin, @user], :html => {:class => 'form-horizontal'} do |f| %>
   <div class="box-body">
     <div class="form-group">
       <%= f.label :email, class: 'col-sm-2 control-label' %>
@@ -20,7 +20,7 @@
   </div>
   <!-- /.box-body -->
   <div class="box-footer">
-    <%= link_to "Cancel", users_path, class: 'btn btn-default' %>
+    <%= link_to "Cancel", admin_users_path, class: 'btn btn-default' %>
     <%= f.submit "Submit", class: 'btn btn-info pull-right' %>
   </div>
   <!-- /.box-footer -->
