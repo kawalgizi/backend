@@ -7,10 +7,6 @@ class Admin::UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
-    p "Users====="
-    @users.each do |user|
-      p user.email
-    end
   end
 
   # GET /users/1
