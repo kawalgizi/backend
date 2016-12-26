@@ -12,6 +12,15 @@
     </div>
   <% end %>
 
+  Brands:
+  <ul>
+    <%= f.fields_for :brand do |brand_form| %>
+      <li>
+        <%= brand_form.label :name %>
+        <%= brand_form.text_field :name %>
+      </li>
+    <% end %>
+  </ul>
   <div class="actions">
     <%= f.submit %>
   </div>
