@@ -22,3 +22,6 @@
 
 #ignore database confidential
 /config/database.yml
+
+#OSX File System
+.DS_STORE
