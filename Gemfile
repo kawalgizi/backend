@@ -30,6 +30,7 @@ group :development do
   gem 'awesome_print'
   gem "letter_opener"
   gem "better_errors"
+  gem 'pry'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
