@@ -15,6 +15,8 @@ class Admin::ProductsController < ApplicationController
   # GET /admin/products/new
   def new
     @admin_product = Product.new
+    @admin_product.build_brand
+    @admin_product.compositions.build
   end
 
   # GET /admin/products/1/edit
@@ -42,7 +44,7 @@ class Admin::ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @admin_product.update(admin_product_params)
-        format.html { redirect_to @admin_product, notice: 'Product was successfully updated.' }
+        format.html { redirect_to admin_products_url, notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin_product }
       else
         format.html { render :edit }
@@ -69,6 +71,15 @@ class Admin::ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_product_params
-      params.fetch(:admin_product, {})
+      allowed_attrs = [
+        { brand_attributes: [:name] },
+        { composition_attributes: [:name,:daily_values] },
+        :name,
+        :bpom_id,
+        :serving_size,
+        :serving_per_container
+      ]
+      params.require(:product).permit(*allowed_attrs)
     end
+
 end

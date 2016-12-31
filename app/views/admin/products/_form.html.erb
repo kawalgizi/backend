@@ -14,12 +14,31 @@
 
   Brands:
   <ul>
-    <%= f.fields_for :brand do |brand_form| %>
+    <%= f.fields_for :brand do |product_form| %>
       <li>
-        <%= brand_form.label :name %>
-        <%= brand_form.text_field :name %>
+        <%= product_form.label :name %>
+        <%= product_form.text_field :name %>
       </li>
     <% end %>
+  </ul>
+  Products:
+  <ul>
+    <li>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </li>
+    <li>
+      <%= f.label 'BPOM id' %>
+      <%= f.text_field :bpom_id %>
+    </li>
+    <li>
+      <%= f.label :serving_size %>
+      <%= f.text_field :serving_size %>
+    </li>
+    <li>
+      <%= f.label :serving_per_container %>
+      <%= f.text_field :serving_per_container %>
+    </li>
   </ul>
   <div class="actions">
     <%= f.submit %>
