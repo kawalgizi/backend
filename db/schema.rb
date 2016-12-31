@@ -66,9 +66,9 @@ ActiveRecord::Schema.define(version: 20161231130032) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "username"
-    t.boolean  "superadmin_role"
+    t.boolean  "superadmin_role",        default: false
     t.boolean  "contributor_role",       default: true
-    t.boolean  "expert_role"
+    t.boolean  "expert_role",            default: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
