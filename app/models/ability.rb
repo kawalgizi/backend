@@ -8,10 +8,12 @@ class Ability
       can :manage, :all
     elsif user.expert?
       # expert
-      can [:create, :read, :update], ProductCategory
+      can :manage, ProductCategory
+      cannot :destroy, ProductCategory
     elsif user.contributor?
       # contributor
-      can :create, ProductCategory
+      can :manage, ProductCategory
+      cannot [:edit, :destroy], ProductCategory
     else
       can :manage, User, id: user.id
     end

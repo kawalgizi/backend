@@ -1,7 +1,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    Username
+    User Information
     <small>Detail</small>
   </h1>
 </section>
@@ -21,6 +21,16 @@
             <dd><%= @user.username %></dd>
             <dt>Email</dt>
             <dd><%= @user.email %></dd>
+            <dt>Roles</dt>
+            <dd>
+              <ul>
+                <% list_roles(@user).each do |k, v| %>
+                  <% if v %>
+                    <li><%= k %></li>
+                  <% end %>
+                <% end %>
+              </ul>
+            </dd>
           </dl>
         </div>
         <!-- /.box-body -->

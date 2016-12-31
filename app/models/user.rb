@@ -20,6 +20,6 @@ class User < ApplicationRecord
   end
 
   def expert?
-    expert_role?
+    expert_role
   end
 end
