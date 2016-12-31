@@ -1,7 +1,5 @@
-class Admin::ProductCategoriesController < ApplicationController
+class Admin::ProductCategoriesController < AdminController
   before_action :set_product_category, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
-  layout "admin"
 
   # GET /product_categories
   # GET /product_categories.json
