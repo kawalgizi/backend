@@ -1,1 +1,27 @@
 <h1><%= @title %></h1>
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+<% if current_user %>
+  <nav>
+    <%= link_to "Dashboard", admin_users_path %> |
+    <%= link_to "Product Category", admin_product_categories_path %> |
+    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+  </nav>
+  <p>Hi, <%= current_user.username %></p>
+  <p>Your current roles:</p>
+  <ul>
+    <% list_roles(current_user).each do |k, v| %>
+      <% if v %>
+        <li><%= k %></li>
+      <% end %>
+    <% end %>
+  </ul>
+<% else %>
+<nav>
+  <%= link_to "Login", new_user_session_path %>
+</nav>
+<% end %>

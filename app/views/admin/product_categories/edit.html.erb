@@ -1,0 +1,29 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <h1>
+    Edit Product Category
+    <small>Edit product category</small>
+  </h1>
+</section>
+
+<section class="content">
+  <!-- contoh posisi alert -->
+  <% if @product_category.errors.any? %>
+    <div class="alert alert-danger alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      <strong><i class="icon fa fa-ban"></i><%= pluralize(@product_category.errors.count, "error") %> prohibited this product_category from being saved:</strong>
+
+      <ul>
+      <% @product_category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <%= render 'form', product_category: @product_category %>
+      </div>
+    </div>
+  </div>
+</section>
