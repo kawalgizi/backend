@@ -18,6 +18,7 @@ class Admin::ProductsController < ApplicationController
     @admin_product = Product.new
     @admin_product.build_brand
     @admin_product.compositions.build
+    @admin_product.nutrition_facts.build
   end
 
   # GET /admin/products/1/edit
@@ -74,7 +75,8 @@ class Admin::ProductsController < ApplicationController
     def admin_product_params
       allowed_attrs = [
         { brand_attributes: [:name] },
-        { composition_attributes: [:name,:daily_values] },
+        { composition_attributes: [:name, :daily_values] },
+        { nutrition_facts_attributes: [:product_id, :nutrition, :daily_value, :akg] },
         :name,
         :bpom_id,
         :serving_size,

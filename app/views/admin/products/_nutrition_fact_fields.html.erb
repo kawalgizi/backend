@@ -1,0 +1,18 @@
+<fieldset>
+  <li>
+    <%= f.label :nutrition %><br/>
+    <%= f.text_field :nutrition %>
+  </li>
+  <li>
+    <%= f.label :daily_value %><br/>
+    <%= f.text_field :daily_value %>
+  </li>
+  <li>
+    <%= f.label :akg %><br/>
+    <%= f.text_field :akg %>
+  </li>
+  <li>
+    <%= f.hidden_field :_destroy %>
+    <%= link_to "remove", '#', class: "remove_nutrition" %>
+  </li>
+</fieldset>
