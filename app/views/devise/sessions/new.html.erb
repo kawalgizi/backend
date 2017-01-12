@@ -5,17 +5,12 @@
 
 <section class="content">
   <!-- contoh posisi alert -->
-  <% if @user.errors.any? %>
+  <% flash.each do |name, msg| %>
     <div class="alert alert-danger alert-dismissible">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-      <h2><i class="icon fa fa-ban"></i><%= pluralize(@user.errors.count, "error") %> prohibited this changefrom being saved:</h2>
-
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+      <i class="icon fa fa-ban"></i> <%= msg %>
     </div>
-  <% end %>
+  <% end %>  
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-group has-feedback">
       <%= f.email_field :email, autofocus: false, class: 'form-control', placeholder: 'Email' %>
