@@ -4,20 +4,17 @@
 </section>
 
 <section class="content">
-  <!-- contoh posisi alert -->
   <% if @user.errors.any? %>
     <div class="alert alert-danger alert-dismissible">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-      <h2><i class="icon fa fa-ban"></i><%= pluralize(@user.errors.count, "error") %> prohibited this changefrom being saved:</h2>
-
       <ul>
       <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
+      </ul>
     </div>
   <% end %>
   <%= form_for(resource, as: resource_name, html: {class: 'form-horizontal'}, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
     <div class="form-group has-feedback">
       <%= f.email_field :email, autofocus: false, class: 'form-control', placeholder: 'Email' %>
     </div>
