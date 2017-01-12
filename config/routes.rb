@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
-  resources :tweets
-  root to: 'tweets#index'
+  root to: 'pages#home'
+  devise_for :users, controllers: {
+    registrations: 'admin/registrations',
+    sessions: 'admin/sessions'
+  }, :path_prefix => 'admin'
 
   namespace :admin do
     resources :products
+    resources :product_categories
+    resources :users
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

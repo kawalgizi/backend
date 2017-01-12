@@ -30,6 +30,12 @@ ActiveRecord::Schema.define(version: 20161231100854) do
     t.index ["product_id"], name: "index_compositions_on_product_id", using: :btree
   end
 
+  create_table "product_categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string   "bpom_id"
     t.string   "name"
@@ -59,6 +65,10 @@ ActiveRecord::Schema.define(version: 20161231100854) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string   "username"
+    t.boolean  "superadmin_role",        default: false
+    t.boolean  "contributor_role",       default: true
+    t.boolean  "expert_role",            default: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

@@ -1,6 +1,7 @@
 class Admin::ProductsController < ApplicationController
   before_action :set_admin_product, only: [:show, :edit, :update, :destroy]
-
+  layout 'admin'
+  
   # GET /admin/products
   # GET /admin/products.json
   def index

@@ -1,0 +1,29 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <h1>
+    Edit Users
+    <small>Edit user</small>
+  </h1>
+</section>
+
+<section class="content">
+  <!-- contoh posisi alert -->
+  <% if @user.errors.any? %>
+    <div class="alert alert-danger alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      <h2><i class="icon fa fa-ban"></i><%= pluralize(@user.errors.count, "error") %> prohibited this tweet from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <%= render 'form', user: @user %>
+      </div>
+    </div>
+  </div>
+</section>

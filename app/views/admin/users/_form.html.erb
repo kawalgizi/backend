@@ -1,0 +1,57 @@
+<div class="box-header with-border">
+  <h3 class="box-title">Horizontal Form</h3>
+</div>
+<!-- /.box-header -->
+<!-- form start -->
+<%= form_for [:admin, @user], :html => {:class => 'form-horizontal'} do |f| %>
+  <div class="box-body">
+    <div class="form-group">
+      <%= f.label :email, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-8">
+        <%= f.text_field :email, class: 'form-control', placeholder: 'Email' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :username, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-8">
+        <%= f.text_field :username, class: 'form-control', placeholder: 'username' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :password, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-8">
+        <%= f.password_field :password, class: 'form-control', placeholder: 'password'%>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :password_confirmation, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-8">
+        <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'password'%>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :superadmin_role, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-8">
+        <%= f.check_box :superadmin_role %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :expert_role, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-8">
+        <%= f.check_box :expert_role %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :contributor_role, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-8">
+        <%= f.check_box :contributor_role %>
+      </div>
+    </div>
+  </div>
+  <!-- /.box-body -->
+  <div class="box-footer">
+    <%= link_to "Cancel", admin_users_path, class: 'btn btn-default' %>
+    <%= f.submit "Submit", class: 'btn btn-info pull-right' %>
+  </div>
+  <!-- /.box-footer -->
+<% end %>

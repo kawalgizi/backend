@@ -1,25 +1,20 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    New Tweets
-    <small>Create new tweet</small>
+    Edit Product Category
+    <small>Edit product category</small>
   </h1>
-  <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="#">Tables</a></li>
-    <li class="active">Simple</li>
-  </ol>
 </section>
 
 <section class="content">
   <!-- contoh posisi alert -->
-  <% if @tweet.errors.any? %>
+  <% if @product_category.errors.any? %>
     <div class="alert alert-danger alert-dismissible">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-      <strong><i class="icon fa fa-ban"></i><%= pluralize(@tweet.errors.count, "error") %> prohibited this tweet from being saved:</strong>
+      <strong><i class="icon fa fa-ban"></i><%= pluralize(@product_category.errors.count, "error") %> prohibited this product_category from being saved:</strong>
 
       <ul>
-      <% @tweet.errors.full_messages.each do |message| %>
+      <% @product_category.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
     </div>
@@ -27,7 +22,7 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="box">
-        <%= render 'form', tweet: @tweet %>
+        <%= render 'form', product_category: @product_category %>
       </div>
     </div>
   </div>

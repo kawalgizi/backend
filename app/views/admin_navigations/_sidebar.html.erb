@@ -7,7 +7,7 @@
         <%= image_tag "user2-160x160.jpg", class: "img-circle", alt: "User Image" %>
       </div>
       <div class="pull-left info">
-        <p>Alexander Pierce</p>
+        <p><%= current_user.username %></p>
         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
       </div>
     </div>
@@ -25,6 +25,16 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu">
       <li class="header">MAIN NAVIGATION</li>
+      <% if can? [:manage], User %>
+      <li>
+        <%= sidebar_link('Users', admin_users_path, 'fa-user') %>
+      </li>
+      <% end %>
+      <% if can? [:manage], ProductCategory %>
+      <li>
+        <%= sidebar_link('Product Categories', admin_product_categories_path, 'fa-list') %>
+      </li>
+      <% end %>
       <!-- <li class="treeview">
         <a href="#">
           <i class="fa fa-dashboard"></i> <span>Dashboard</span>
