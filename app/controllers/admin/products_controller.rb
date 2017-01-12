@@ -31,7 +31,7 @@ class Admin::ProductsController < ApplicationController
 
     respond_to do |format|
       if @admin_product.save
-        format.html { redirect_to @admin_product, notice: 'Product was successfully created.' }
+        format.html { redirect_to admin_products_url, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @admin_product }
       else
         format.html { render :new }
