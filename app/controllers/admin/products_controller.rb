@@ -75,7 +75,7 @@ class Admin::ProductsController < ApplicationController
     def admin_product_params
       allowed_attrs = [
         { brand_attributes: [:name] },
-        { composition_attributes: [:name, :daily_values] },
+        { compositions_attributes: [:name] },
         { nutrition_facts_attributes: [:product_id, :nutrition, :daily_value, :akg] },
         :name,
         :bpom_id,

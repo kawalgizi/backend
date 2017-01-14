@@ -40,6 +40,13 @@
       <%= f.text_field :serving_per_container %>
     </li>
   </ul>
+  Compositions:
+  <ul>
+    <%= f.fields_for :compositions do |builder| %>
+      <%= render 'composition_fields', f: builder %>
+    <% end %>
+    <%= link_to_add_fields "Add Compositions", f, :compositions %>
+  </ul>
   Nutrition Facts:
   <ul>
     <%= f.fields_for :nutrition_facts do |builder| %>
