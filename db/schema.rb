@@ -10,15 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161231130032) do
+ActiveRecord::Schema.define(version: 20170112003735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "brands", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "compositions", force: :cascade do |t|
+    t.string   "name"
+    t.decimal  "daily_values"
+    t.integer  "product_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["product_id"], name: "index_compositions_on_product_id", using: :btree
+  end
+
+  create_table "nutrition_facts", force: :cascade do |t|
+    t.string   "nutrition"
+    t.string   "daily_value"
+    t.string   "akg"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "product_id"
+  end
 
   create_table "product_categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string   "bpom_id"
+    t.string   "name"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.decimal  "serving_size"
+    t.integer  "serving_per_container"
+    t.integer  "brand_id"
+    t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,4 +83,6 @@ ActiveRecord::Schema.define(version: 20161231130032) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "compositions", "products"
+  add_foreign_key "products", "brands"
 end

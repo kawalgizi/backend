@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Admin Products</h1>
+
+<ol>
+  <% @admin_products.each do |admin_product| %>
+    <li>
+      <%= link_to admin_product.name, admin_product_url(admin_product.id) %>
+      |<%= link_to 'Edit', edit_admin_product_path(admin_product) %>|
+      |<%= link_to 'Destroy', admin_product_url(admin_product.id), method: :delete, data: { confirm: 'Are you sure?' } %>|
+    </li>
+  <% end %>
+</ol>
+
+<br>
+
+<%= link_to 'New Admin Product', new_admin_product_path %>

@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h2><%= @admin_product.name %></h2>
+
+<h3>Compositions</h3>
+<% @admin_product.compositions.each do |composition| %>
+<ul>
+    <li><%= composition.name %></li>
+</ul>
+<% end %>
+
+<h3>Nutrition Facts</h3>
+<% @admin_product.nutrition_facts.each do |fact| %>
+<ul>
+    <li>Nutrition: <%= fact.nutrition %></li>
+    <li>AKG: <%= fact.akg %></li>
+    <li>Daily Value: <%= fact.daily_value %></li>
+</ul>
+<% end %>
+
+<%= link_to 'Edit', edit_admin_product_path(@admin_product) %> |
+<%= link_to 'Back', admin_products_path %>

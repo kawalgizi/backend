@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   }, :path_prefix => 'admin'
 
   namespace :admin do
+    resources :products
     resources :product_categories
     resources :users
   end

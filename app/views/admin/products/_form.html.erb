@@ -1,0 +1,60 @@
+
+<%= form_for [:admin, @admin_product] do |f| %>
+  <% if @admin_product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_product.errors.count, "error") %> prohibited this @admin_product from being saved:</h2>
+
+      <ul>
+      <% @admin_product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  Brands:
+  <ul>
+    <%= f.fields_for :brand do |product_form| %>
+      <li>
+        <%= product_form.label :name %>
+        <%= product_form.text_field :name %>
+      </li>
+    <% end %>
+  </ul>
+  Products:
+  <ul>
+    <li>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </li>
+    <li>
+      <%= f.label 'BPOM id' %>
+      <%= f.text_field :bpom_id %>
+    </li>
+    <li>
+      <%= f.label :serving_size %>
+      <%= f.text_field :serving_size %>
+    </li>
+    <li>
+      <%= f.label :serving_per_container %>
+      <%= f.text_field :serving_per_container %>
+    </li>
+  </ul>
+  Compositions:
+  <ul>
+    <%= f.fields_for :compositions do |builder| %>
+      <%= render 'composition_fields', f: builder %>
+    <% end %>
+    <%= link_to_add_fields "Add Compositions", f, :compositions %>
+  </ul>
+  Nutrition Facts:
+  <ul>
+    <%= f.fields_for :nutrition_facts do |builder| %>
+      <%= render 'nutrition_fact_fields', f: builder %>
+    <% end %>
+    <%= link_to_add_fields "Add Nutrition Facts", f, :nutrition_facts %>
+  </ul>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
