@@ -9,10 +9,14 @@ class Ability
     elsif user.expert?
       # expert
       can :manage, ProductCategory
+      can :manage, Product
       cannot :destroy, ProductCategory
+      cannot :destroy, Product
     elsif user.contributor?
       # contributor
       can :manage, ProductCategory
+      can :manage, Product
+      cannot [:edit, :destroy], Product
       cannot [:edit, :destroy], ProductCategory
     else
       can :manage, User, id: user.id

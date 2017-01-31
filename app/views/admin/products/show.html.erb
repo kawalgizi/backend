@@ -1,6 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<%= @admin_product.name %>
+<h2><%= @admin_product.name %></h2>
+
+<h3>Compositions</h3>
+<% @admin_product.compositions.each do |composition| %>
+<ul>
+    <li><%= composition.name %></li>
+</ul>
+<% end %>
+
 <h3>Nutrition Facts</h3>
 <% @admin_product.nutrition_facts.each do |fact| %>
 <ul>
